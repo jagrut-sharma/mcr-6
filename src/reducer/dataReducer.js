@@ -8,8 +8,14 @@ export const initialDataState = {
 
 export const dataReducer = (draft, action) => {
   switch (action.type) {
-    case ACTIONS.TEST:
+    case ACTIONS.ADD_COMMENT: {
+      const selectedRes = draft.restaurantsData.find(
+        ({ id }) => id === +action.payload.resID
+      );
+      selectedRes.ratings.push(action.payload.review);
+
       break;
+    }
 
     default:
       break;

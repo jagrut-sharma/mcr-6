@@ -1,1 +1,3 @@
-export const ACTIONS = {};
+export const ACTIONS = {
+  ADD_COMMENT: "ADD COMMENT",
+};

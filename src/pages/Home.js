@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useData } from "../context/dataContext";
-import { cuisineData, restaurantsData } from "../utils/data";
+import { Link } from "react-router-dom";
+// import { cuisineData, restaurantsData } from "../utils/data";
 
 export default function Home() {
   const [currID, setCurrID] = useState("");
-  const { dataState } = useData();
+  const {
+    dataState: { restaurantsData, cuisineData },
+  } = useData();
 
   const selectedRes = restaurantsData.filter(
     ({ cuisine_id }) => cuisine_id === currID
   );
-
-  console.log(dataState);
 
   return (
     <>
@@ -31,7 +32,7 @@ export default function Home() {
 
       <main className="flex flex-col mt-8 gap-8 p-8">
         {selectedRes.map((res) => (
-          <div key={res.id}>
+          <Link to={`/res/${res.id}`} key={res.id}>
             <h2 className="text-xl font-bold font-Libre">{`Dishes by ${res.name}:`}</h2>
 
             <div className="flex gap-6 flex-wrap mt-2">
@@ -48,7 +49,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </Link>
         ))}
       </main>
     </>

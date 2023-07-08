@@ -57,7 +57,7 @@ export const restaurantsData = [
       },
       {
         rating: 1,
-        comment: "Lackluster flavors and unappealing presentatio",
+        comment: "Lackluster flavors and unappealing presentation",
         pp: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoZ_Xg9XbpVTth91jSsUrrGzlx_v-YZ8pD4YLfGUR4CAdzq_D-DhN_&s=0",
         revName: "Kripla",
       },
