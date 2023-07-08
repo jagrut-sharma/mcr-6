@@ -4,6 +4,7 @@ import { cuisineData, restaurantsData } from "../utils/data";
 export const initialDataState = {
   restaurantsData: restaurantsData,
   cuisineData: cuisineData,
+  selectedCuisines: "",
 };
 
 export const dataReducer = (draft, action) => {

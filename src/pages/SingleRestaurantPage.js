@@ -17,6 +17,11 @@ export default function SingleRestaurantPage() {
     ""
   );
 
+  const avgRating = selectedRes.ratings.reduce(
+    (acc, curr) => acc + curr.rating / selectedRes.ratings.length,
+    0
+  );
+
   return (
     <main className="flex flex-col p-4 items-center mt-4">
       <Link to={"/"} className="text-emerald-600 fixed top-0 left-0 m-4">
@@ -33,7 +38,7 @@ export default function SingleRestaurantPage() {
             {selectedRes.address}, {selectedRes.phone}
           </p>
           <p className="text-gray-500 pb-4">
-            Average Rating: {selectedRes.averageRating}
+            Average Rating: {avgRating.toFixed(1)}
           </p>
         </div>
 

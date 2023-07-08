@@ -30,7 +30,7 @@ export default function Home() {
         ))}
       </div>
 
-      <main className="flex flex-col mt-8 gap-8 p-8">
+      <main className="flex flex-col mt-8 gap-8 p-8 items-center">
         {selectedRes.map((res) => (
           <Link to={`/res/${res.id}`} key={res.id}>
             <h2 className="text-xl font-bold font-Libre">{`Dishes by ${res.name}:`}</h2>
