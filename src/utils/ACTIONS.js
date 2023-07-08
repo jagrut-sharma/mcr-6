@@ -1,3 +1,4 @@
 export const ACTIONS = {
   ADD_COMMENT: "ADD COMMENT",
+  CHANGE_CUISINE: "CHANGE CUISINE",
 };

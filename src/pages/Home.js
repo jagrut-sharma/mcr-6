@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { useData } from "../context/dataContext";
 import { Link } from "react-router-dom";
+import { ACTIONS } from "../utils/ACTIONS";
 // import { cuisineData, restaurantsData } from "../utils/data";
 
 export default function Home() {
-  const [currID, setCurrID] = useState("");
   const {
-    dataState: { restaurantsData, cuisineData },
+    dataState: { restaurantsData, cuisineData, selectedCuisine },
+    dataDispatch,
   } = useData();
 
+  const handleCuisine = (id) => {
+    dataDispatch({ type: ACTIONS.CHANGE_CUISINE, payload: id });
+  };
+
   const selectedRes = restaurantsData.filter(
-    ({ cuisine_id }) => cuisine_id === currID
+    ({ cuisine_id }) => cuisine_id === selectedCuisine
   );
 
   return (
@@ -23,7 +28,7 @@ export default function Home() {
           <button
             key={cuisine.id}
             className="text-lg mx-4 bg-emerald-600 px-3 py-1 rounded-md font-bold text-slate-50"
-            onClick={() => setCurrID(cuisine.id)}
+            onClick={() => handleCuisine(cuisine.id)}
           >
             {cuisine.name}
           </button>

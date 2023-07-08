@@ -4,7 +4,7 @@ import { cuisineData, restaurantsData } from "../utils/data";
 export const initialDataState = {
   restaurantsData: restaurantsData,
   cuisineData: cuisineData,
-  selectedCuisines: "",
+  selectedCuisine: "",
 };
 
 export const dataReducer = (draft, action) => {
@@ -15,6 +15,11 @@ export const dataReducer = (draft, action) => {
       );
       selectedRes.ratings.push(action.payload.review);
 
+      break;
+    }
+
+    case ACTIONS.CHANGE_CUISINE: {
+      draft.selectedCuisine = action.payload;
       break;
     }
 
